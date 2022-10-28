@@ -6,10 +6,12 @@
 #include "destino.h"
 #include "empresa.h"
 #include "tipo.h"
+#include "viaje.h"
 
 
 #define TAM 10
 #define TAM_EMPTIP 4
+#define TAM_V 10
 
 
 
@@ -23,7 +25,11 @@ int main()
 
     char seguir = 's';
     int nextId = 10000;
+    int nextIdViaje = 100000;
+    int flagAltaMicro = 0;
+    int flagAltaViaje = 0;
     eMicro lista[TAM];
+    eViaje viajes[TAM_V];
 
 
     eDestino destinos[4] = {
@@ -50,9 +56,14 @@ int main()
 
     };
 
-    if( !inicializarMicros(lista, TAM))
+    if(!inicializarMicros(lista, TAM))
     {
-        printf("Problema al inicializar.\n");
+        printf("Problema al inicializar Micros.\n");
+    }
+
+    if(!inicializarViajes(viajes, TAM_V))
+    {
+        printf("Problema al inicializar Viajes.\n");
     }
 
 
@@ -62,7 +73,7 @@ int main()
         switch(menu())
         {
             case 'a':
-                if(!altaMicro(lista,TAM,&nextId, empresas, TAM_EMPTIP, tipos))
+                if(!altaMicro(lista,TAM,&nextId, empresas, TAM_EMPTIP, tipos, &flagAltaMicro))
                 {
                     system("cls");
                     printf("No se pudo realizar el alta.\n");
@@ -74,30 +85,58 @@ int main()
                 }
                 break;
             case 'b':
-                if(!modificarMicros(lista,TAM,empresas,tipos, TAM_EMPTIP))
+                if(flagAltaMicro == 1)
                 {
-                    system("cls");
-                    printf("No se pudo realizar la modificacion.");
+
+                    if(!modificarMicros(lista,TAM,empresas,tipos, TAM_EMPTIP))
+                    {
+                        system("cls");
+                        printf("No se pudo realizar la modificacion.");
+                    }
+                    else
+                    {   system("cls");
+                        printf("Modificacion Exitosa.\n");
+                    }
+
                 }
                 else
-                {   system("cls");
-                    printf("Modificacion Exitosa.\n");
+                {
+                    system("cls");
+                    printf("Error, no existen micros dados de alta.\n");
                 }
+
                 break;
             case 'c':
-                if(!bajaMicro(lista, TAM, empresas,tipos, TAM_EMPTIP))
+                if(flagAltaMicro == 1)
                 {
-                    system("cls");
-                    printf("No se pudo realizar la baja.");
+                    if(!bajaMicro(lista, TAM, empresas,tipos, TAM_EMPTIP, &flagAltaMicro))
+                    {
+                        system("cls");
+                        printf("No se pudo realizar la baja.");
+                    }
+                    else
+                    {
+                        system("cls");
+                        printf("Baja Exitosa.\n");
+                    }
                 }
                 else
                 {
                     system("cls");
-                    printf("Baja Exitosa.\n");
+                    printf("Error, no existen micros dados de alta.\n");
                 }
+
                 break;
             case 'd':
-                mostrarMicros(lista, TAM, empresas,tipos, TAM_EMPTIP);
+                if(flagAltaMicro == 1)
+                {
+                   mostrarMicros(lista, TAM, empresas,tipos, TAM_EMPTIP);
+                }
+                else
+                {
+                    system("cls");
+                    printf("Error, no existen micros dados de alta.\n");
+                }
                 break;
             case 'e':
                  mostrarEmpresas(empresas, TAM_EMPTIP);
@@ -108,16 +147,41 @@ int main()
             case 'g':
                 mostrarDestinos(destinos, TAM_EMPTIP);
                 break;
+            case 'h':
+                if(flagAltaMicro == 1)
+                {
+                   altaViaje(viajes,TAM_V,lista, TAM, &nextIdViaje,empresas, TAM_EMPTIP,destinos, TAM_EMPTIP,tipos, &flagAltaViaje);
+                }
+                else
+                {
+                    system("cls");
+                    printf("Error, no existen micros dados de alta.\n");
+                }
+
+                break;
+            case 'i':
+                if(flagAltaViaje == 1)
+                {
+                    mostrarViajes(viajes, TAM_V,lista,TAM,empresas,TAM_EMPTIP, destinos, TAM_EMPTIP);
+                }
+                else
+                {
+                    system("cls");
+                    printf("No existen viajes dados de alta.\n");
+                }
+
+                break;
             case 'j':
                 confirmaSalida(&seguir);
                 break;
 
             default:
-                printf("Opcion Invalida!!!\n");
+                printf("Opcion Invalida.\n");
                 break;
 
 
         }
+        printf("Hola mundo.");
         system("pause");
 
     }while(seguir == 's');

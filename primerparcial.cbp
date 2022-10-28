@@ -39,6 +39,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="empresa.h" />
+		<Unit filename="fecha.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fecha.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -50,6 +54,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="tipo.h" />
+		<Unit filename="viaje.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="viaje.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

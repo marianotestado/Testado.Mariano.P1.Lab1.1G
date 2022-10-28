@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1666396538 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\empresa.c
+1666932210 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\empresa.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -15,7 +15,7 @@
 	"empresa.h"
 	"tipo.h"
 
-1666400088 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\micro.c
+1666816132 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\micro.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -24,7 +24,7 @@
 	"empresa.h"
 	"tipo.h"
 
-1666398414 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\destino.c
+1666809869 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\destino.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -33,7 +33,7 @@
 	"empresa.h"
 	"tipo.h"
 
-1666400088 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\main.c
+1666932210 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -42,14 +42,43 @@
 	"destino.h"
 	"empresa.h"
 	"tipo.h"
+	"viaje.h"
 
-1666399629 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\micro.h
+1666815548 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\micro.h
 	"empresa.h"
 	"tipo.h"
 
-1666398414 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\destino.h
+1666847129 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\destino.h
 
-1666395612 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\empresa.h
+1666847129 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\empresa.h
 
 1666395612 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\tipo.h
+
+1666808594 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\fecha.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"fecha.h"
+
+1666808594 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\fecha.h
+
+1666831676 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\viaje.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"viaje.h"
+	"fecha.h"
+	"micro.h"
+	"tipo.h"
+	"empresa.h"
+	"destino.h"
+
+1666815904 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\viaje.h
+	"fecha.h"
+	"micro.h"
+	"destino.h"
+	"tipo.h"
+	"empresa.h"
 

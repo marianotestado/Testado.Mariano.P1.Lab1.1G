@@ -50,7 +50,7 @@ int menu()
     return opcion;
 }
 
-int altaMicro(eMicro lista[], int tam, int* pId,eEmpresa empresas[], int tamLoc, eTipo tipos[])
+int altaMicro(eMicro lista[], int tam, int* pId,eEmpresa empresas[], int tamLoc, eTipo tipos[], int* flag)
 {
 
 
@@ -99,8 +99,9 @@ int altaMicro(eMicro lista[], int tam, int* pId,eEmpresa empresas[], int tamLoc,
             system("cls");
             printf("Ingrese capacidad: ");
             scanf("%d", &auxMicro.capacidad);
-            while(auxMicro.capacidad < 0 && auxMicro.capacidad >= 51)
+            while(auxMicro.capacidad < 0 || auxMicro.capacidad >= 51)
             {
+                system("cls");
                 printf("Ingrese una capacidad entre 0 y 50: ");
                 scanf("%d", &auxMicro.capacidad);
             }
@@ -111,11 +112,9 @@ int altaMicro(eMicro lista[], int tam, int* pId,eEmpresa empresas[], int tamLoc,
 
             lista[indice] = auxMicro;
 
-            todoOk = 1;
+            *flag = 1;
 
         }
-
-
         todoOk = 1;
     }
 
@@ -174,7 +173,7 @@ void mostrarMicro(eMicro p, eEmpresa empresas[], int tam, eTipo tipos[], int cap
     char descEmpresa[20];
     char descTipo[20];
 
-    if(cargarDescripcionEmpresa(empresas, tam, p.idEmpresa, descEmpresa)==1 ||
+    if(cargarDescripcionEmpresa(empresas, tam, p.idEmpresa, descEmpresa)==1 &&
        cargarDescripcionTipo(tipos, tam, p.idTipo, descTipo) == 1)
     {
         printf("  %02d     %-10s   %-10s   %02d                              \n", p.id,
@@ -192,7 +191,6 @@ void mostrarMicro(eMicro p, eEmpresa empresas[], int tam, eTipo tipos[], int cap
 int mostrarMicros(eMicro lista[], int tam, eEmpresa empresas[],eTipo tipos[], int tamLoc)
 {
 
-    int flag = 1;
     int todoOk = 0;
 
 
@@ -204,22 +202,16 @@ int mostrarMicros(eMicro lista[], int tam, eEmpresa empresas[],eTipo tipos[], in
         system("cls");
         printf("                      Lista de Micros    \n");
         printf("---------------------------------------------------------------\n");
-        printf("  ID       Empresa      Tipo     Capacidad\n\n");
+        printf("  ID       Empresa       Tipo      Capacidad\n\n");
         printf("---------------------------------------------------------------\n");
 
         for(int i=0; i < tam ; i++)
         {
             if(!lista[i].isEmpty)
             {
-                mostrarMicro(lista[i], empresas, tipos, tamLoc, lista[i].capacidad);
-                flag = 0;
+                mostrarMicro(lista[i], empresas, tamLoc, tipos , lista[i].capacidad);
             }
 
-        }
-
-        if(flag)
-        {
-            printf("No hay micros para mostrar.\n");
         }
 
         todoOk = 1;
@@ -230,11 +222,12 @@ int mostrarMicros(eMicro lista[], int tam, eEmpresa empresas[],eTipo tipos[], in
 
 }
 
-int bajaMicro(eMicro lista[], int tam, eEmpresa empresas[],eTipo tipos[], int tamLoc)
+int bajaMicro(eMicro lista[], int tam, eEmpresa empresas[],eTipo tipos[], int tamLoc, int* flag)
 {
     int todoOk = 0;
     int indice;
     int id;
+    int flagVacio = 0;
     char confirma;
     if(lista != NULL && tam > 0)
     {
@@ -256,7 +249,8 @@ int bajaMicro(eMicro lista[], int tam, eEmpresa empresas[],eTipo tipos[], int ta
         }
         else
         {
-            mostrarMicro(lista[indice], empresas, tipos, tamLoc, lista[indice].capacidad);
+            mostrarMicro(lista[indice], empresas, tamLoc, tipos, lista[indice].capacidad);
+
             printf("Confirma baja? (s para confirmar): ");
             fflush(stdin);
             confirma = tolower(getchar());
@@ -270,6 +264,14 @@ int bajaMicro(eMicro lista[], int tam, eEmpresa empresas[],eTipo tipos[], int ta
             {
                 printf("baja cancelada por el usuario.\n");
             }
+        }
+        for(int i=0; i < tam; i++)
+        {
+            if(lista[i].isEmpty == 0)
+            {
+                flagVacio = 1;
+            }
+            *flag = flagVacio;
         }
 
 
@@ -320,7 +322,7 @@ int modificarMicros(eMicro lista[], int tam, eEmpresa empresas[],eTipo tipos[], 
         }
         else
         {
-            mostrarMicro(lista[indice], empresas, tipos, tamLoc, lista[indice].capacidad);
+            mostrarMicro(lista[indice], empresas, tamLoc, tipos, lista[indice].capacidad);
             printf("Confirma modificacion?: ");
             fflush(stdin);
             scanf("%c", &confirma);
@@ -343,10 +345,10 @@ int modificarMicros(eMicro lista[], int tam, eEmpresa empresas[],eTipo tipos[], 
                     lista[indice].idEmpresa = auxEmpresa;
                     break;
                 case 2:
-                    printf("Ingrese Empresa: ");
+                    printf("Ingrese Tipo: ");
                     fflush(stdin);
-                    mostrarEmpresas(empresas, tamLoc);
-                    scanf("%d",&auxEmpresa);
+                    mostrarTipos(tipos, tamLoc);
+                    scanf("%d",&auxTipo);
 
                     while(!validarIdTipo(auxTipo, tipos, tamLoc))
                     {
@@ -354,7 +356,7 @@ int modificarMicros(eMicro lista[], int tam, eEmpresa empresas[],eTipo tipos[], 
                         printf("Ingrese id de tipo valida: ");
                         scanf("%d", &auxTipo);
                     }
-                    lista[indice].idEmpresa = auxTipo;
+                    lista[indice].idTipo = auxTipo;
                     break;
 
                 case 3:
@@ -414,7 +416,7 @@ int ordenarMicros(eMicro lista[], int tam)
             {
                 if((lista[i].idEmpresa > lista[j].idEmpresa) ||
                    (lista[i].idEmpresa == lista[j].idEmpresa &&
-                    lista[i].capacidad < lista[i].capacidad
+                    lista[i].capacidad >  lista[j].capacidad
                     )
                    )
                 {

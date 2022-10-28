@@ -14,7 +14,7 @@ int mostrarDestinos(eDestino destinos[], int tam)
     if(destinos != NULL && tam > 0)
     {
         system("cls");
-        printf("   ID       Empresa\n");
+        printf("   ID       Destino\n");
         printf("-----------------------------\n");
         for(int i=0; i < tam; i++)
         {
@@ -27,3 +27,58 @@ int mostrarDestinos(eDestino destinos[], int tam)
 
     return todoOk;
 }
+
+int validarIdDestino(int id, eDestino destinos[], int tamD)
+{
+    int todoOk = 0;
+
+    if(destinos != NULL && tamD > 0 && id > 0)
+    {
+
+        for(int i=0; i < tamD; i++)
+        {
+            if(destinos[i].id == id)
+                {
+                    todoOk = 1;
+                    break;
+                }
+
+        }
+
+    }
+
+    return todoOk;
+}
+
+int cargarDescripcionDestino(eDestino destinos[],int tamD,int idDestino, char descripcion[])
+{
+
+    int todoOk = 0;
+    int flag = 1;
+
+    if(destinos != NULL && tamD > 0 && descripcion != NULL && idDestino > 0)
+    {
+        todoOk = 1;
+        for(int i=0; i < tamD; i++)
+        {
+            if(destinos[i].id == idDestino)
+                {
+                    strcpy(descripcion, destinos[i].descripcion);
+                    flag = 0;
+                    break;
+                }
+
+        }
+
+
+        if(flag)
+        {
+            todoOk = -1;
+        }
+
+    }
+
+    return todoOk;
+
+}
+

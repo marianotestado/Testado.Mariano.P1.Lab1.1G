@@ -7,6 +7,7 @@
 #include "empresa.h"
 #include "tipo.h"
 #include "chofer.h"
+#include "viaje.h"
 
 
 
@@ -35,7 +36,7 @@ int menu()
 {
     char opcion;
     system("cls");
-    printf("         ABM Personas      \n\n");
+    printf("         ABM Micros      \n\n");
     printf("A- Alta Micro\n");
     printf("B- Modificar Micro\n");
     printf("C- Baja Micro\n");
@@ -637,7 +638,7 @@ int mostrarMicrosTipo(eMicro lista[], int tam, eTipo tipos[], int tamLoc, eEmpre
 }
 
 
-informarPromedioVipEmpresa(eMicro lista[], int tam, eTipo tipos[], int tamLoc, eEmpresa empresas[])
+int informarPromedioVipEmpresa(eMicro lista[], int tam, eTipo tipos[], int tamLoc, eEmpresa empresas[])
 {
     int todoOk = 0;
     int idEmpresa;
@@ -732,7 +733,6 @@ int mostrarMayorCapacidad(eMicro lista[], int tam, eEmpresa empresas[], int tamL
     int todoOk = 0;
     int acumuladores[tamLoc];
     int mayor;
-    char mayorCap[20];
 
     for(int i=0; i < tamLoc; i++)
         {
@@ -787,7 +787,6 @@ int empresaMenorCantMicros(eMicro lista[], int tam, eEmpresa empresas[], int tam
     int todoOk = 0;
     int contadores[tamLoc];
     int menor;
-    char menorLoc[20];
 
     for(int i=0; i < tamLoc; i++)
         {
@@ -835,5 +834,3 @@ int empresaMenorCantMicros(eMicro lista[], int tam, eEmpresa empresas[], int tam
     }
     return todoOk;
 }
-
-

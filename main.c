@@ -191,7 +191,7 @@ int main()
                         break;
 
                     case 2:
-                        mostrarMicrosTipo(lista, TAM,tipos, TAM_EMPTIP, empresas);
+                        mostrarMicrosTipo(lista, TAM,tipos, TAM_EMPTIP, empresas, choferes);
                         break;
 
                     case 3:

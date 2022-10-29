@@ -123,10 +123,93 @@ int ordenarMicros(eMicro lista[], int tam);
 
 // informes
 
+/** \brief
+ *
+ * \return int retorna la opcion ingresada por el usuario.
+ *
+ */
 int menuInformes();
+/** \brief
+ *
+ * \param id int pide el id
+ * \param lista[] eMicro pide la direccion de memoria del array de estructura.
+ * \param tam int pide el tamanio del array de eMicro.
+ * \param empresas[] eEmpresa pide la direccion de memoria del array de estructura.
+ * \param tamLoc int pide el tamanio del array de eEmpresa.
+ * \param tipos[] eTipo pide la direccion de memoria del array de estructura.
+ * \param choferes[] eChofer pide la direccion de memoria del array de estructura.
+ * \return int si esta todo Ok retorna 1, si surge un error retorna 0.
+ *
+ */
 int mostrarMicrosIdEmpresa(int id,eMicro lista[], int tam, eEmpresa empresas[], int tamLoc, eTipo tipos[], eChofer choferes[]);
+/** \brief
+ *
+ * \param lista[] eMicro pide la direccion de memoria del array de estructura.
+ * \param tam int pide el tamanio del array de eMicro.
+ * \param empresas[] eEmpresa pide la direccion de memoria del array de estructura.
+ * \param tamLoc int pide el tamanio del array de eEmpresa.
+ * \param tipos[] eTipo pide la direccion de memoria del array de estructura.
+ * \param choferes[] eChofer pide la direccion de memoria del array de estructura.
+ * \return int si esta todo Ok retorna 1, si surge un error retorna 0.
+ *
+ */
 int mostrarMicrosEmpresa(eMicro lista[], int tam, eEmpresa empresas[], int tamLoc, eTipo tipos[], eChofer  choferes[]);
+/** \brief
+ *
+ * \param lista[] eMicro pide la direccion de memoria del array de estructura.
+ * \param tam int pide el tamanio del array de eMicro.
+ * \param empresas[] eEmpresa pide la direccion de memoria del array de estructura.
+ * \param tamLoc int pide el tamanio del array de eEmpresa.
+ * \param tipos[] eTipo pide la direccion de memoria del array de estructura.
+ * \param choferes[] eChofer pide la direccion de memoria del array de estructura.
+ * \return int si esta todo Ok retorna 1, si surge un error retorna 0.
+ *
+ */
 int mostrarMicrosAllEmpresas(eMicro lista[], int tam, eEmpresa empresas[], int tamLoc,eTipo tipos[],eChofer choferes[]);
+/** \brief
+ *
+ * \param lista[] eMicro pide la direccion de memoria del array de estructura.
+ * \param tam int pide el tamanio del array de eMicro.
+ * \param empresas[] eEmpresa pide la direccion de memoria del array de estructura.
+ * \param tamLoc int pide el tamanio del array de eEmpresa.
+ * \param tipos[] eTipo pide la direccion de memoria del array de estructura.
+ * \return int si esta todo Ok retorna 1, si surge un error retorna 0.
+ *
+ */
+
 int mostrarMayorCapacidad(eMicro lista[], int tam, eEmpresa empresas[], int tamLoc, eTipo tipos[]);
+/** \brief
+ *
+ * \param lista[] eMicro pide la direccion de memoria del array de estructura.
+ * \param tam int pide el tamanio del array de eMicro.
+ * \param empresas[] eEmpresa pide la direccion de memoria del array de estructura.
+ * \param tamLoc int pide el tamanio del array de eEmpresa.
+ * \param tipos[] eTipo pide la direccion de memoria del array de estructura.
+ * \return int si esta todo Ok retorna 1, si surge un error retorna 0.
+ *
+ */
 int empresaMenorCantMicros(eMicro lista[], int tam, eEmpresa empresas[], int tamLoc, eTipo tipos[]);
+/** \brief
+ *
+ * \param lista[] eMicro pide la direccion de memoria del array de estructura.
+ * \param tam int pide el tamanio del array de eMicro.
+ * \param tipos[] eTipo pide la direccion de memoria del array de estructura.
+ * \param tamLoc int pide el tamanio del array de eEmpresa.
+ * \param empresas[] eEmpresa pide la direccion de memoria del array de estructura.
+ * \param choferes[] eChofer pide la direccion de memoria del array de estructura.
+ * \return int si esta todo Ok retorna 1, si surge un error retorna 0.
+ *
+ */
+int mostrarMicrosTipo(eMicro lista[], int tam, eTipo tipos[], int tamLoc, eEmpresa empresas[], eChofer choferes[]);
+/** \brief
+ *
+ * \param lista[] eMicro pide la direccion de memoria del array de estructura.
+ * \param tam int pide el tamanio del array de eMicro.
+ * \param tipos[] eTipo pide la direccion de memoria del array de estructura.
+ * \param tamLoc int pide el tamanio del array de eEmpresa.
+ * \param empresas[] eEmpresa pide la direccion de memoria del array de estructura.
+ * \return int si esta todo Ok retorna 1, si surge un error retorna 0.
+ *
+ */
+int informarPromedioVipEmpresa(eMicro lista[], int tam, eTipo tipos[], int tamLoc, eEmpresa empresas[]);
 

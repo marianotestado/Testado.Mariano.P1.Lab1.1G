@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="chofer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="chofer.h" />
 		<Unit filename="destino.c">
 			<Option compilerVar="CC" />
 		</Unit>

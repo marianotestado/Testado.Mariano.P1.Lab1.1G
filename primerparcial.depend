@@ -15,7 +15,7 @@
 	"empresa.h"
 	"tipo.h"
 
-1666816132 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\micro.c
+1667003324 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\micro.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -23,6 +23,7 @@
 	"micro.h"
 	"empresa.h"
 	"tipo.h"
+	"chofer.h"
 
 1666809869 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\destino.c
 	<stdio.h>
@@ -33,7 +34,7 @@
 	"empresa.h"
 	"tipo.h"
 
-1666932210 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\main.c
+1667002965 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -43,16 +44,18 @@
 	"empresa.h"
 	"tipo.h"
 	"viaje.h"
+	"chofer.h"
 
-1666815548 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\micro.h
+1667002959 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\micro.h
 	"empresa.h"
 	"tipo.h"
+	"chofer.h"
 
 1666847129 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\destino.h
 
 1666847129 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\empresa.h
 
-1666395612 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\tipo.h
+1666992159 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\tipo.h
 
 1666808594 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\fecha.c
 	<stdio.h>
@@ -63,7 +66,7 @@
 
 1666808594 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\fecha.h
 
-1666831676 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\viaje.c
+1667002781 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\viaje.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -74,11 +77,21 @@
 	"tipo.h"
 	"empresa.h"
 	"destino.h"
+	"chofer.h"
 
-1666815904 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\viaje.h
+1667002769 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\viaje.h
 	"fecha.h"
 	"micro.h"
 	"destino.h"
 	"tipo.h"
 	"empresa.h"
+
+1667003214 source:c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\chofer.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"chofer.h"
+
+1667002358 c:\users\administrador\documents\utn\programación 1\proyectos\primerparcial\chofer.h
 

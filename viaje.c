@@ -9,6 +9,7 @@
 #include "tipo.h"
 #include "empresa.h"
 #include "destino.h"
+#include "chofer.h"
 
 
 int inicializarViajes(eViaje viajes[], int tamV)
@@ -50,7 +51,7 @@ int buscarLibreViaje(eViaje viajes[], int tamV)
 
 }
 
-int altaViaje(eViaje viajes[],int tamV, eMicro lista[], int tam, int* pIdViaje, eEmpresa empresas[], int tamE, eDestino destinos[], int tamD,eTipo tipos[], int* flag)
+int altaViaje(eViaje viajes[],int tamV, eMicro lista[], int tam, int* pIdViaje, eEmpresa empresas[], int tamE, eDestino destinos[], int tamD,eTipo tipos[], int* flag, eChofer choferes[])
 {
 
 
@@ -86,14 +87,14 @@ int altaViaje(eViaje viajes[],int tamV, eMicro lista[], int tam, int* pIdViaje, 
                 scanf("%d", &auxViaje.idDestino);
             }
 
-            mostrarMicros(lista, tam, empresas, tipos, tamE);
+            mostrarMicros(lista, tam, empresas, tipos, tamE, choferes);
             printf("Ingrese id micro: ");
             scanf("%d", &auxViaje.idMicro);
 
 
             while(!buscarMicroId(lista, tam, auxViaje.idMicro))
             {
-                mostrarMicros(lista, tam, empresas, tipos, tamE);
+                mostrarMicros(lista, tam, empresas, tipos, tamE, choferes);
                 printf("Ingrese id micro valida: ");
                 scanf("%d", &auxViaje.idMicro);
             }
@@ -138,7 +139,7 @@ void mostrarViaje(eViaje viajes, eDestino destinos[], int tamD)
 
     if(cargarDescripcionDestino(destinos, tamD, viajes.idDestino, descDestino)==1)
     {
-        printf("  %02d     %-10s      %02d      %02d/%02d/%d \n",  viajes.id,
+        printf("  %02d     %-10s        %02d       %02d/%02d/%d \n",  viajes.id,
                                                                descDestino,
                                                                viajes.idMicro,
                                                                viajes.fecha.dia,

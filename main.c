@@ -7,11 +7,13 @@
 #include "empresa.h"
 #include "tipo.h"
 #include "viaje.h"
+#include "chofer.h"
 
 
 #define TAM 10
 #define TAM_EMPTIP 4
 #define TAM_V 10
+#define TAM_C 4
 
 
 
@@ -56,6 +58,15 @@ int main()
 
     };
 
+    eChofer choferes[TAM_C]={
+        {40000,"Jose Ramirez", 'm'},
+        {40001,"Carlos Suarez", 'm'},
+        {40002,"Roberto Gutierrez", 'm'},
+        {40003,"Mariano Laceiras", 'm'}
+
+
+    };
+
     if(!inicializarMicros(lista, TAM))
     {
         printf("Problema al inicializar Micros.\n");
@@ -73,7 +84,7 @@ int main()
         switch(menu())
         {
             case 'a':
-                if(!altaMicro(lista,TAM,&nextId, empresas, TAM_EMPTIP, tipos, &flagAltaMicro))
+                if(!altaMicro(lista,TAM,&nextId, empresas, TAM_EMPTIP, tipos, &flagAltaMicro, choferes))
                 {
                     system("cls");
                     printf("No se pudo realizar el alta.\n");
@@ -88,7 +99,7 @@ int main()
                 if(flagAltaMicro == 1)
                 {
 
-                    if(!modificarMicros(lista,TAM,empresas,tipos, TAM_EMPTIP))
+                    if(!modificarMicros(lista,TAM,empresas,tipos, TAM_EMPTIP, choferes))
                     {
                         system("cls");
                         printf("No se pudo realizar la modificacion.");
@@ -109,7 +120,7 @@ int main()
             case 'c':
                 if(flagAltaMicro == 1)
                 {
-                    if(!bajaMicro(lista, TAM, empresas,tipos, TAM_EMPTIP, &flagAltaMicro))
+                    if(!bajaMicro(lista, TAM, empresas,tipos, TAM_EMPTIP, &flagAltaMicro, choferes))
                     {
                         system("cls");
                         printf("No se pudo realizar la baja.");
@@ -130,7 +141,7 @@ int main()
             case 'd':
                 if(flagAltaMicro == 1)
                 {
-                   mostrarMicros(lista, TAM, empresas,tipos, TAM_EMPTIP);
+                   mostrarMicros(lista, TAM, empresas,tipos, TAM_EMPTIP, choferes);
                 }
                 else
                 {
@@ -150,7 +161,7 @@ int main()
             case 'h':
                 if(flagAltaMicro == 1)
                 {
-                   altaViaje(viajes,TAM_V,lista, TAM, &nextIdViaje,empresas, TAM_EMPTIP,destinos, TAM_EMPTIP,tipos, &flagAltaViaje);
+                   altaViaje(viajes,TAM_V,lista, TAM, &nextIdViaje,empresas, TAM_EMPTIP,destinos, TAM_EMPTIP,tipos, &flagAltaViaje, choferes);
                 }
                 else
                 {
@@ -171,7 +182,53 @@ int main()
                 }
 
                 break;
+
             case 'j':
+                switch(menuInformes())
+                {
+                    case 1:
+                        mostrarMicrosEmpresa(lista, TAM, empresas, TAM_EMPTIP, tipos, choferes);
+                        break;
+
+                    case 2:
+                        mostrarMicrosTipo(lista, TAM,tipos, TAM_EMPTIP, empresas);
+                        break;
+
+                    case 3:
+                        informarPromedioVipEmpresa(lista, TAM, tipos, TAM_EMPTIP, empresas);
+                        break;
+
+                    case 4:
+                        mostrarMicrosAllEmpresas(lista, TAM, empresas, TAM_EMPTIP,tipos, choferes);
+                        break;
+
+                    case 5:
+                        mostrarMayorCapacidad(lista, TAM, empresas, TAM_EMPTIP, tipos);
+                        break;
+
+                    case 6:
+                        empresaMenorCantMicros(lista, TAM, empresas, TAM_EMPTIP, tipos);
+                        break;
+
+                    case 7:
+
+                        break;
+
+                    case 8:
+
+                        break;
+
+                    case 9:
+
+                        break;
+
+                    case 10:
+
+                        break;
+
+                }
+                break;
+            case 'k':
                 confirmaSalida(&seguir);
                 break;
 
@@ -181,7 +238,6 @@ int main()
 
 
         }
-        printf("Hola mundo.");
         system("pause");
 
     }while(seguir == 's');
